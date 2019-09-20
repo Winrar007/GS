@@ -1,0 +1,184 @@
+@color-tab: #edeeef;
+@color-radio-border-hover: #8288a2;
+@color-radio-border: #dadef0;
+@color-disabled-font: @color-radio-border-hover;
+@color-disabled-back: @color-tab;
+@color-border: rgba(218,222,240,1);
+@color-button: #212bff;
+
+@media (min-width: 1200px) {
+
+
+  .content {
+
+    margin: auto ;
+
+  }
+
+
+}
+@media screen {
+  [class^='form__1-']{
+
+
+    &:hover {
+      cursor: pointer;
+      border: 1px solid #c3c9db;
+
+
+    }
+    &:focus {
+      border-color: #8288a2;
+    }
+    &:disabled {
+      color: @color-disabled-font;
+      background: @color-disabled-back;
+    }
+
+    &::placeholder {
+
+      color: #b8bed8;
+    }
+
+    &:valid {
+      border-color: @color-radio-border;
+
+    }
+
+
+  }
+
+
+}
+@media (max-width: 768px) {
+.content h1 {
+  font-size: 20pt;
+}
+ input[name='tab']{
+
+   &+label {
+    display: none;
+   }
+
+ }
+.content .form {
+  &__1, &__2 {
+    display: none;
+  }
+
+}
+.content .form {
+
+                padding: 0;
+              &__adaptive {
+
+                                  &~label {
+                                    position: relative;
+                                    display: flex;
+                                    border-top: 1px solid @color-border;
+                                    border-bottom: 1px solid @color-border;
+                                    padding: 1em 2em;
+                                    padding: 0.6em 1.2em;
+                                    color: @color-radio-border-hover;
+                                    max-width: 100%;
+                                    min-wdith: 280px;
+
+                                              &:hover {
+                                                cursor: pointer;
+                                                color: @color-button;
+
+                                                & +label::after {
+                                                  color: @color-button;
+                                                }
+                                              }
+
+                                    &::after {
+                                      content: "";
+                                      position: absolute;
+                                      width: 7px;
+                                      height: 7px;
+                                      border-left: 3px solid @color-radio-border-hover;
+                                      border-bottom: 3px solid @color-radio-border-hover;
+                                      transform: rotate(-45deg);
+                                      right: 3%;
+                                      top: 20px;
+
+                                    }
+
+                                  }
+                  &[id=delivery1] {
+                    &:checked{
+                      & ~label[for=delivery1] {
+                        color: @color-button;
+                      }
+                      & ~label[for=delivery1]::after {
+                        transform: rotate(135deg);
+                        border-color: @color-button;
+                      }
+                         & ~ .form__1 {
+
+                          display: flex;
+                        }
+                  }
+                  }
+
+                  &[id=pickup2] {
+                    &:checked {
+
+                            & ~label[for=pickup2] {
+                              color: @color-button;
+                            }
+                      & ~label[for=pickup2]::after {
+                        transform: rotate(135deg);
+                        border-color: @color-button;
+                      }
+                          & ~ .form__2 {
+
+                            display: flex;
+                          }
+                  }
+                }
+              }
+            &__1 {
+              height: 700px;
+
+            }
+            .alignment{
+              flex-direction: column;
+               height: 200px;
+
+
+                        label {
+                          display: flex;
+
+
+                               width: 100%;
+
+                                        input {
+
+                                           width: 100%;
+
+                                                }
+
+
+                                 }
+                            }
+                          &__2 {
+                            div:nth-child(1) {
+                              display: flex;
+                              flex-direction: column;
+
+                              label {
+                                display: flex;
+                                width: 100%;
+
+                              }
+
+                            }
+                          }
+                  }
+
+
+
+
+}

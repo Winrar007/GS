@@ -1,8 +1,473 @@
+
+@color-text: black;
+@color-border: rgba(218,222,240,1);
+@color-button: #212bff;
+@color-button-hover: #2029ea;
+@color-button-pressed: #1e26d8;
+@font-main: 'Montserrat', sans-serif;
+@color-tab: #edeeef;
+@color-tab-font: #8288a2;
+@color-radio-border: #dadef0;
+@color-radio-border-hover: #8288a2;
+@color-radio-selected: #212bff;
+@color-disabled-font: @color-radio-border-hover;
+@color-disabled-back: @color-tab;
+@color-tab-hover: @color-radio-selected;
+html {
+
+  height: 100%;
+}
 body {
-   background: green;
-   h1 {
-      color:red;
-      font-size: 45px;
-      font-weight: bold;
+
+height: 100%;
+   margin: 0;
+   font-family: @font-main;
+   font-weight: 500;
+   font-size: 12px;
+   line-height: 26pt;
+
+   display: flex;
+   background: #f6f6f6;
+
+}
+
+.content {
+   height: 100%;
+   color: @color-text;
+   display: flex;
+   flex-direction: column;
+   align-items: space-around;
+
+   z-index: 20;
+   position: relative;
+
+   width: 996px;
+   h1{
+      padding: 0;
+      margin: 0;
+      font-size: 32px;
+      line-height: 20pt;
+      font-weight: 500;
+      margin-bottom: 3em;
+
    }
+   [class^='form__1-']{
+      border: 1px solid @color-border;
+      border-radius: 4px;
+      height: 56px;
+      box-sizing: border-box;
+      padding: 1em 1em;
+      position: relative;
+
+      & +span {
+         position: relative;
+
+         &::before {
+
+            content: "Заполните поле верно";
+            position: absolute;
+            font-size: 10px;
+            top: -7px;
+            color: #ff1e38;
+            display: none;
+
+         }
+      }
+      &:hover {
+         cursor: pointer;
+         border: 1px solid #c3c9db;
+
+
+      }
+      &:focus {
+         border-color: #8288a2;
+      }
+      &:disabled {
+         color: @color-disabled-font;
+         background: @color-disabled-back;
+      }
+
+      &::placeholder {
+
+         color: #b8bed8;
+      }
+
+      &:valid {
+      border-color: @color-radio-border;
+
+      }
+     &:not(:placeholder-shown):invalid {
+
+       border-color: #ff1e38;
+       box-shadow: none;
+
+       & ~span::before {
+         display: block;
+       }
+     }
+
+
+   }
+  .invalidValue {
+
+    border-color: #ff1e38;
+    box-shadow: none;
+    & ~span::before {
+      display: block;
+    }
+
+    &:hover{
+      border-color: red;
+      box-shadow: none;
+    }
+
+  }
+   .form {
+      background: white;
+      box-sizing: border-box;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      height: auto;
+
+
+      max-width: 996px;
+
+      min-width: 250px;
+
+       z-index: 40;
+
+
+
+      &__adaptive {
+
+         display: none;
+
+      }
+
+      &__1{
+         display: flex;
+        flex-direction: column;
+         box-sizing: border-box;
+         justify-content: space-around;
+         width: 100%;
+         height: 530px;
+         padding: 2% 3%;
+         label {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            margin: 0;
+         }
+
+         .alignment{
+            display: flex;
+            justify-content: space-between;
+            max-width: 932px;
+            min-width: 250px;
+
+            label {
+               width: 49.15%;
+            }
+
+         }
+
+
+         &-fio {
+
+
+
+         }
+         &-phone {
+
+
+
+
+
+         }
+         &-address {
+            max-width: 932px;
+
+            min-width: 250px;
+
+         }
+         &-comment {
+            resize: none;
+            max-width: 932px;
+            height: 8em;
+            min-width: 250px;
+         }
+
+
+
+
+
+      }
+      &__2 {
+
+         display: flex;
+         box-sizing: border-box;
+         flex-direction: column;
+         width: 100%;
+         height: 767px;
+         padding: 2% 3%;
+
+                  div:nth-child(1) {
+                   box-sizing: border-box;
+                     display: flex;
+                    justify-content: space-between;
+
+                      max-width: 932px;
+                     min-width: 250px;
+                        label {
+                           width: 49%;
+                           margin-left: 25px;
+                           position: relative;
+                                 span{
+                                    position: relative;
+                                 }
+
+                                    & .radio1::after,
+                                    & .radio2::after {
+                                       content: "";
+                                       position: absolute;
+                                       width: 6px;
+                                       height: 6px;
+                                       border-radius: 50%;
+                                       background: @color-radio-selected;
+                                       left: 0;
+                                       left: -20px;
+                                       top: 5px;
+                                       display: none;
+
+                                    }
+
+                                    & .radio1::before,
+                                    & .radio2::before {
+                                       content: "";
+                                       position: absolute;
+                                       width: 20px;
+                                       height: 20px;
+                                       border: 1px solid @color-radio-border;
+                                       border-radius: 50%;
+                                       top: -3px;
+                                       left: -28px;
+
+                                    }
+                           &:hover .radio1::before,
+                           &:hover .radio2::before {
+
+                              border: 1px solid @color-radio-border-hover;
+                           }
+
+
+
+                           input {
+                              display: none;
+                              margin-right: 10px;
+                              &:disabled {
+
+                                 &~ .radio1::before,
+                                 &~ .radio2::before{
+                                    background: @color-disabled-back;
+                                    border-color:  @color-disabled-back;
+                                 }
+                                 &~ span {
+                                    color: @color-disabled-font;
+                                 }
+                              }
+
+                                 &:checked {
+
+                                    &~ .radio1::after,
+                                    &~ .radio2::after {
+                                       display: block;
+                                    }
+                                    &~ .radio1::before,
+                                    &~ .radio2::before{
+
+                                       border-color: @color-radio-selected;
+
+                                    }
+
+
+                                 }
+
+
+                           }
+                        }
+                  }
+         div:nth-child(2) {
+            max-width: 932px;
+            min-width: 250px;
+            height: 582px;
+            margin-top: 1em;
+         }
+
+
+      }
+
+
+
+   }
+
+}
+
+.notAdaptive {
+
+
+
+   &[name^='tab'] {
+      display: none;
+
+
+      &[id = 'delivery'] {
+
+         &:checked ~ label span.tab1::before,
+         &:checked ~ label span.tab1::after {
+
+            z-index: -1;
+            background: white;
+
+         }
+         &:checked ~ label span.tab1 {
+            color: @color-tab-hover;
+         }
+
+         &:not(:checked) {
+
+            & ~ .form__1 {
+               display: none;
+            }
+
+         }
+      }
+
+      &[id = 'pickup']{
+         &:checked ~ label span.tab2::before,
+         &:checked ~ label span.tab2::after {
+            z-index: -1;
+            background: white;
+         }
+         &:checked ~ label span.tab2 {
+            color: @color-tab-hover;
+         }
+
+
+
+         &:not(:checked) {
+
+
+                   & ~ .form__2 {
+                      display: none;
+                      }
+               }
+      }
+   }
+
+   &+label {
+      position: absolute;
+      top: -55px;
+      left: 0;
+      border-radius: 4px 4px 0px 4px;
+      height: 60px;
+      width: 120px;
+
+
+
+
+
+            span {
+               position: relative;
+               color: @color-tab-font;
+               font-size: 14px;
+               left: 20px;
+               user-select: none;
+
+                  &:hover {
+                     color: @color-tab-hover;
+                  }
+
+
+
+
+
+               &.tab1::before,
+               &.tab2::before {
+                  content: "";
+                  position: absolute;
+                  height: 65px;
+                  width: 100px;
+                  background: @color-tab;
+
+                  border-radius: 4px 0px 4px 0px;
+                  left: -20px;
+                  top: -15px;
+                  z-index: -2;
+
+               }
+               &.tab2::after,
+               &.tab1::after {
+                 content: "";
+                 position: absolute;
+                 height: 65px;
+                 width: 80px;
+                 border-radius: 0px 4px 0px 0px;
+                 background: @color-tab;
+                 transform: skew(30deg);
+                 left: 50px;
+                 top: -15px;
+                 z-index: -2;
+                 box-shadow: 2px 0px 0px @color-border;
+
+               }
+
+            }
+
+
+      &[for^="delivery"]{
+
+
+      }
+      &[for^="pickup"]{
+
+
+         left: 135px;
+
+
+
+
+      }
+   }
+}
+button {
+   margin-top: 1em;
+   margin-left: auto;
+   width: 208px;
+   height: 56px;
+   background: none;
+   border: 0;
+   box-sizing: border-box;
+   font-family: @font-main;
+   line-height: 24pt;
+   font-size: 16px;
+   border-radius: 28px;
+   background-color: @color-button;
+   color: white;
+   transition: all 0.2s;
+
+   &:hover {
+      background-color: @color-button-hover;
+
+
+   }
+   &:active {
+      background: @color-button-pressed;
+   }
+   &:disabled {
+      color: @color-disabled-font;
+      background: @color-disabled-back;
+
+   }
+
 }

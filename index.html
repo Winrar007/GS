@@ -4,12 +4,59 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="build/css/style.css">
-   <title>Document</title>
+   <title>Greensight</title>
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" />
+   <script src="https://api-maps.yandex.ru/2.1/?apikey=8c4cbf6b-323d-409b-b332-60bd349cae87&lang=ru_RU"  type="text/javascript">
+   </script>
 </head>
 <body>
-   <h1>Заголовок</h1>
-   <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi repudiandae officia quod voluptas nobis minus hic, totam animi! Nisi eveniet voluptas facere consequuntur velit, eius deserunt quae. Delectus, laudantium quis.</p>
-   <script src="build/js/script.js"></script>
+   <div class="content">
+      <h1>Выберите способ доставки</h1>
+
+      <form class ='form ' action ="" >
+
+         <input type = 'radio' id = 'delivery' name = 'tab' checked class = 'notAdaptive'>
+         <label for ='delivery'><span class="tab1">Доставка</span></label>
+
+         <input type = 'radio' id ='pickup' name = 'tab' class = 'notAdaptive'>
+         <label for ='pickup'><span class="tab2">Самовызов</span></label>
+
+
+         <input type = 'radio' id = 'delivery1' class="form__adaptive" name="tabAdaptive">
+         <label for = 'delivery1' class="form__adaptive">Доставка</label>
+
+         <div class="form__1">
+            <div class = 'alignment'>
+         <label > ФИО <input type = 'text' class="form__1-fio validate" required placeholder = "Только кириллица" autofocus tabindex="1" pattern = "^[А-Яа-яЁё\s\-]+$"><span ></span></label>
+         <label> Телефон <input type = 'text' class="form__1-phone validate" required placeholder = "+7 (___)___-__-__" tabindex="2" pattern = "\+7\(9[0-9]{2}\)[0-9]{3}-[0-9]{2}-[0-9]{2}"><span></span></label>
+            </div>
+         <label> Адрес доставки <input type = 'text' class="form__1-address validate" required placeholder = "Город, улица, дом" tabindex="3"><span></span></label>
+            <label> Комментарий <textarea class = 'form__1-comment validate' tabindex="4"  required placeholder=" "></textarea><span></span></label>
+            <button type ='submit'>Отправить</button>
+         </div>
+         <input type = 'radio' id = 'pickup2' class="form__adaptive" name = 'tabAdaptive'>
+         <label for = 'pickup2' class="form__adaptive">Самовызов</label>
+
+         <div class="form__2">
+
+            <div class="alignment2">
+               <label ><input type = 'radio' name ='pickup' ><span class="radio1">Пункт Выдачи заказов Песчаная улица, дом 13</span></label>
+               <label ><input type = 'radio' name = "pickup"><span class="radio2">Пункт Выдачи заказов Подсосенский переулок, 11</span></label>
+
+            </div>
+            <div id="map"></div>
+            <button type ='submit'>Отправить</button>
+         </div>
+
+      </form>
+
+
+
+
+   </div>
+   <script src="build/js/script.js" type="text/javascript">
+   </script>
 </body>
 </html>

@@ -23,8 +23,8 @@ const stylus = require('gulp-stylus');
 
 //Порядок подключения файлов со стилями
 const styleFiles = [
-   './src/css/main.styl',
-   './src/css/media.styl'
+   './src/css/main.less',
+   './src/css/media.less'
 ]
 //Порядок подключения js файлов
 const scriptFiles = [
@@ -39,12 +39,12 @@ gulp.task('styles', () => {
    return gulp.src(styleFiles)
       .pipe(sourcemaps.init())
       //Указать stylus() , sass() или less()
-      .pipe(stylus())
+      .pipe(less())
       //Объединение файлов в один
       .pipe(concat('style.css'))
       //Добавить префиксы
       .pipe(autoprefixer({
-         browsers: ['last 2 versions'],
+         overrideBrowserslist: ['last 2 versions'] ,
          cascade: false
       }))
       //Минификация CSS
@@ -86,7 +86,7 @@ gulp.task('watch', () => {
       }
    });
    //Следить за файлами со стилями с нужным расширением
-   gulp.watch('./src/css/**/*.styl', gulp.series('styles'))
+   gulp.watch('./src/css/**/*.less', gulp.series('styles'))
    //Следить за JS файлами
    gulp.watch('./src/js/**/*.js', gulp.series('scripts'))
    //При изменении HTML запустить синхронизацию
