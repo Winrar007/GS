@@ -32,6 +32,7 @@ height: 100%;
 }
 
 .content {
+
    height: 100%;
    color: @color-text;
    display: flex;
@@ -43,8 +44,10 @@ height: 100%;
 
    width: 996px;
    h1{
+
       padding: 0;
       margin: 0;
+     margin-top: 20px;
       font-size: 32px;
       line-height: 20pt;
       font-weight: 500;
@@ -76,30 +79,34 @@ height: 100%;
       &:hover {
          cursor: pointer;
          border: 1px solid #c3c9db;
+        outline: none;
 
 
       }
       &:focus {
          border-color: #8288a2;
+        outline: none;
       }
       &:disabled {
          color: @color-disabled-font;
          background: @color-disabled-back;
+        outline: none;
       }
 
       &::placeholder {
-
+        outline: none;
          color: #b8bed8;
       }
 
       &:valid {
       border-color: @color-radio-border;
-
+        outline: none;
       }
      &:not(:placeholder-shown):invalid {
 
        border-color: #ff1e38;
        box-shadow: none;
+       outline: none;
 
        & ~span::before {
          display: block;
@@ -131,6 +138,7 @@ height: 100%;
       height: auto;
 
 
+
       max-width: 996px;
 
       min-width: 250px;
@@ -158,6 +166,7 @@ height: 100%;
             flex-direction: column;
             padding: 0;
             margin: 0;
+           font-size: 14px;
          }
 
          .alignment{
@@ -220,8 +229,9 @@ height: 100%;
                       max-width: 932px;
                      min-width: 250px;
                         label {
-                           width: 49%;
+                           width: 44%;
                            margin-left: 25px;
+                          font-size: 14px;
                            position: relative;
                                  span{
                                     position: relative;
@@ -367,7 +377,7 @@ height: 100%;
 
    &+label {
       position: absolute;
-      top: -55px;
+      top: -48px;
       left: 0;
       border-radius: 4px 4px 0px 4px;
       height: 60px;
@@ -381,7 +391,7 @@ height: 100%;
                position: relative;
                color: @color-tab-font;
                font-size: 14px;
-               left: 20px;
+               left: 35px;
                user-select: none;
 
                   &:hover {
@@ -401,8 +411,8 @@ height: 100%;
                   background: @color-tab;
 
                   border-radius: 4px 0px 4px 0px;
-                  left: -20px;
-                  top: -15px;
+                  left: -35px;
+                  top: -25px;
                   z-index: -2;
 
                }
@@ -415,8 +425,8 @@ height: 100%;
                  border-radius: 0px 4px 0px 0px;
                  background: @color-tab;
                  transform: skew(30deg);
-                 left: 50px;
-                 top: -15px;
+                 left: 35px;
+                 top: -25px;
                  z-index: -2;
                  box-shadow: 2px 0px 0px @color-border;
 
@@ -470,4 +480,12 @@ button {
 
    }
 
+
+}
+.button-margin {
+  margin-left: auto;
+
+  &--button2 {
+    margin-top: 2em;
+  }
 }

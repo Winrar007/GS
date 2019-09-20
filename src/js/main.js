@@ -16,7 +16,7 @@ function init(){
     });
     var myCollection = new ymaps.GeoObjectCollection({}, {
         iconLayout: 'default#image',
-        iconImageHref: 'mark.svg',
+        iconImageHref: 'mark.png',
         iconImageSize: [30, 42],
         iconImageOffset: [-3, -42]
     });
@@ -80,6 +80,8 @@ function validatePostCode(evt){
     }
 }
 var inputInvalid = document.querySelectorAll('.validate');
+
+
 
 inputInvalid.forEach(function (item) {
 
